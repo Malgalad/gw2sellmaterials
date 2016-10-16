@@ -1,0 +1,36 @@
+{
+  "name": "gw2-materials",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-2": "^6.17.0",
+    "css-loader": "^0.25.0",
+    "lodash.get": "^4.4.2",
+    "lodash.groupby": "^4.6.0",
+    "lodash.keyby": "^4.6.0",
+    "lodash.throttle": "^4.1.1",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "style-loader": "^0.13.1",
+    "webpack": "2.1.0-beta.25"
+  },
+  "scripts": {
+    "build": "webpack --config webpack.config.js -p"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Malgalad/gw2sellmaterials.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Malgalad/gw2sellmaterials/issues"
+  },
+  "homepage": "https://github.com/Malgalad/gw2sellmaterials#readme"
+}

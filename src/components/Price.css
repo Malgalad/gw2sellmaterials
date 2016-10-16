@@ -1,0 +1,9 @@
+.coin {
+    width: 16px;
+    height: 16px;
+}
+
+.amount {
+    white-space: nowrap;
+    float: left;
+}

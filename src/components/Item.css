@@ -1,0 +1,66 @@
+.material {
+    display: inline-block;
+    position: relative;
+    border-width: 2px;
+    border-style: solid;
+}
+
+.material.junk {
+    border-color: #aaa;
+}
+
+.material.basic {
+    border-color: #000;
+}
+
+.material.fine {
+    border-color: #62a4da;
+}
+
+.material.masterwork {
+    border-color: #1a9306;
+}
+
+.material.rare {
+    border-color: #fcd00b;
+}
+
+.material.exotic {
+    border-color: #ffa405;
+}
+
+.material.ascended {
+    border-color: #fb3e8d;
+}
+
+.material.legendary {
+    border-color: #4c139d;
+}
+
+.material .count {
+    position: absolute;
+    color: white;
+    right: 5px;
+    bottom: 0;
+    text-shadow: 1px 1px 2px black, -1px 1px 2px black, 1px -1px 2px black, -1px -1px 2px black;
+}
+
+.material.disabled {
+    opacity: 0.33;
+}
+
+.material .sellsFor {
+    position: absolute;
+    color: white;
+    right: 0;
+    left: 0;
+    top: 0;
+    text-shadow: 1px 1px 2px black, -1px 1px 2px black, 1px -1px 2px black, -1px -1px 2px black;
+    font-size: small;
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.material .icon {
+    width: 64px;
+    height: 64px;
+}

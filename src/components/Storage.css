@@ -1,0 +1,11 @@
+.storage {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.minimalPrice {
+    display: inline-block;
+    vertical-align: middle;
+}
