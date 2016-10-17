@@ -10,7 +10,9 @@
     "babel-preset-es2015": "^6.16.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-2": "^6.17.0",
+    "classnames": "^2.2.5",
     "css-loader": "^0.25.0",
+    "lodash.curryright": "^4.1.1",
     "lodash.get": "^4.4.2",
     "lodash.groupby": "^4.6.0",
     "lodash.keyby": "^4.6.0",
@@ -21,7 +23,7 @@
     "webpack": "2.1.0-beta.25"
   },
   "scripts": {
-    "build": "webpack --config webpack.config.js -p"
+    "build": "webpack"
   },
   "repository": {
     "type": "git",

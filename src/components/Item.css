@@ -5,35 +5,35 @@
     border-style: solid;
 }
 
-.material.junk {
+.material.Junk {
     border-color: #aaa;
 }
 
-.material.basic {
+.material.Basic {
     border-color: #000;
 }
 
-.material.fine {
+.material.Fine {
     border-color: #62a4da;
 }
 
-.material.masterwork {
+.material.Masterwork {
     border-color: #1a9306;
 }
 
-.material.rare {
+.material.Rare {
     border-color: #fcd00b;
 }
 
-.material.exotic {
+.material.Exotic {
     border-color: #ffa405;
 }
 
-.material.ascended {
+.material.Ascended {
     border-color: #fb3e8d;
 }
 
-.material.legendary {
+.material.Legendary {
     border-color: #4c139d;
 }
 

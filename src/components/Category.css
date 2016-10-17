@@ -1,3 +1,4 @@
 .category {
-    width: 680px;
+    max-width: 680px;
+    margin: 5px 10px;
 }

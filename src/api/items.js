@@ -1,4 +1,3 @@
-import * as items from '../constants/api/items';
-
 export const getItems = (ids) =>
-  Promise.resolve(items[`_${ids[0]}`]);
+  System.import('../constants/api/items')
+    .then((module) => module[`_${ids[0]}`]);

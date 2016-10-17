@@ -1,4 +1,4 @@
-const { fetch } = window;
+const fetch = window.fetch;
 
 export default fetch;
 

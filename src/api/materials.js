@@ -1,7 +1,7 @@
-import materialList, { byId } from '../constants/api/materials';
-
 export const getCategoriesList = () =>
-  Promise.resolve(materialList);
+  System.import('../constants/api/materials')
+    .then((module) => module.default);
 
 export const getCategoryItems = (ids) =>
-  Promise.resolve(byId);
+  System.import('../constants/api/materials')
+    .then((module) => module.byId);

@@ -1,6 +1,6 @@
 import React from 'react';
 import throttle from 'lodash.throttle';
-import getProp from 'lodash.get';
+import classnames from 'classnames';
 
 import styles from './Overlay.css';
 import { getTokenInfo, getAccountInfo } from '../api/account';
@@ -9,6 +9,7 @@ export default class Overlay extends React.Component {
   state = {
     apiKey: '',
     message: {},
+    accountName: '',
     isKeyValid: false,
   };
 
@@ -31,7 +32,7 @@ export default class Overlay extends React.Component {
         return getAccountInfo(token);
       })
       .then((account) => {
-        this.setState({ message: { text: `Welcome, ${account.name}!` }, isKeyValid: true });
+        this.setState({ message: { text: `Welcome, ${account.name}!` }, isKeyValid: true, accountName: account.name });
       })
       .catch((error) => {
         this.setState({ message: { text: error.message, isError: true } });
@@ -39,7 +40,7 @@ export default class Overlay extends React.Component {
   });
 
   render() {
-    const { apiKey, isKeyValid, message } = this.state;
+    const { apiKey, isKeyValid, message, accountName } = this.state;
     const { onChange } = this.props;
 
     return (
@@ -51,19 +52,27 @@ export default class Overlay extends React.Component {
               <input
                 type="text"
                 placeholder="API key"
-                className="form-control"
+                className="form-control m-b-1"
                 value={apiKey}
                 onChange={this.setApiKey}
               />
               {
                 message.text &&
-                  <div className={`alert alert-${message.isError ? 'warning' : 'success'}`}>
+                  <div
+                    className={
+                      classnames(
+                        'alert',
+                        { 'alert-warning' : message.isError },
+                        { 'alert-success': !message.isError }
+                      )
+                    }
+                  >
                     { message.text }
                   </div>
               }
             </p>
             <button
-              onClick={() => onChange(apiKey)}
+              onClick={() => onChange({ apiKey, accountName })}
               className="btn btn-primary"
               disabled={!isKeyValid}
             >

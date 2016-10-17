@@ -2,6 +2,8 @@ import React from 'react';
 
 import Overlay from './Overlay';
 import Storage from './Storage';
+import { getAccountInfo } from '../api/account';
+import { setItem } from '../services/localStorage';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -9,16 +11,24 @@ export default class App extends React.Component {
 
     this.state = {
       apiKey: props.apiKey,
+      accountName: '',
     };
   }
 
-  setApiKey = (apiKey) => {
-    this.setState({ apiKey});
-    localStorage.setItem('apiKey', apiKey);
+  componentWillMount() {
+    if (this.props.apiKey) {
+      getAccountInfo(this.props.apiKey)
+        .then((account) => this.setState({ accountName: account.name }));
+    }
+  }
+
+  setApiKey = ({ apiKey, accountName }) => {
+    this.setState({ apiKey, accountName });
+    setItem('apiKey', apiKey);
   };
 
   render() {
-    const { apiKey } = this.state;
+    const { apiKey, accountName } = this.state;
     const { minValue, filterItems } = this.props;
 
     return (
@@ -31,6 +41,7 @@ export default class App extends React.Component {
           minValue={minValue}
           filterItems={filterItems}
           apiKey={apiKey}
+          accountName={accountName}
         />
       </div>
     );
