@@ -48,6 +48,10 @@ export default class Overlay extends React.Component {
         <div className="row">
           <div className="col-xs-4 offset-xs-4 card card-block">
             <h3 className="card-title">Please enter GW2 API Token</h3>
+            <small>
+              You can create a new token <a href="https://account.arena.net/applications/create">here</a>.
+              Make sure to include "inventories" API.
+            </small>
             <p className="card-text">
               <input
                 type="text"
