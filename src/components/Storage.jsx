@@ -16,6 +16,7 @@ export default class App extends React.Component {
       isReady: false,
       minValue: props.minValue,
       filterItems: props.filterItems,
+      priceCategory: props.priceCategory,
       categories: [],
       userStorageByCategory: {},
     };
@@ -52,39 +53,50 @@ export default class App extends React.Component {
     setItem('filterItems', event.target.checked);
   };
 
+  setPriceCategory = (event) => {
+    this.setState({ priceCategory: event.target.value });
+    setItem('priceCategory', event.target.value);
+  };
+
   forgetToken = () => {
     clear();
   };
 
   render() {
-    const { minValue, isReady, categories, userStorageByCategory, filterItems } = this.state;
+    const { minValue, isReady, categories, userStorageByCategory, filterItems, priceCategory } = this.state;
     const { accountName } = this.props;
 
     return (
       <div className={styles.container}>
         <div className={`form-inline ${styles.options}`}>
           <div className="form-group">
-            <label htmlFor="minValue">
+            <label className="form-check-inline">
               Minimum sell value: <Price coins={minValue} className={styles.minimalPrice} />
+              <input
+                type="number"
+                placeholder="Set price in coppers"
+                className="form-control"
+                value={minValue}
+                onChange={this.setMinValue}
+              />
             </label>
-            <input
-              type="number"
-              id="minValue"
-              placeholder="Set price in coppers"
-              className="form-control"
-              value={minValue}
-              onChange={this.setMinValue}
-            />
           </div>
           <div className="form-group">
             <label className="form-check-inline">
               Show only filtered items: <input
                 type="checkbox"
-                id="filterItems"
                 className="form-control"
                 checked={filterItems}
                 onChange={this.setFilterItems}
               />
+            </label>
+          </div>
+          <div className="form-group">
+            <label className="form-check-inline">
+              Use price of: <select value={priceCategory} onChange={this.setPriceCategory} className="form-control">
+              <option value="sells">Sell order</option>
+              <option value="buys">Buy order</option>
+            </select>
             </label>
           </div>
           <div className="pull-xs-right">
@@ -108,6 +120,7 @@ export default class App extends React.Component {
                     itemsCount={userStorageByCategory[category.id]}
                     minValue={minValue}
                     filterItems={filterItems}
+                    priceCategory={priceCategory}
                   />
                 ) :
               <p>Loading...</p>

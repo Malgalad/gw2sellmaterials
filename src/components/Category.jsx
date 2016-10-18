@@ -11,8 +11,6 @@ import Price from './Price';
 
 const curriedGetProp = curryRight(getProp);
 const getCount = curriedGetProp('count', 0);
-const getSellPrice = curriedGetProp('sells.unit_price', 0);
-const getBuyPrice = curriedGetProp('buys.unit_price', 0);
 
 export default class Category extends React.Component {
   constructor(props) {
@@ -43,12 +41,14 @@ export default class Category extends React.Component {
 
   render() {
     const { isReady, items, itemCountById, itemPricesById } = this.state;
-    const { name, minValue, filterItems } = this.props;
+    const { name, minValue, filterItems, priceCategory } = this.props;
+    const getPrice = curriedGetProp(`${priceCategory}.unit_price`, 0);
     let totalCost = 0;
     let filteredItems = 0;
+
     const renderedItems = items.map((item) => {
       const count = getCount(itemCountById[item.id]);
-      const sellsFor = getSellPrice(itemPricesById[item.id]);
+      const sellsFor = getPrice(itemPricesById[item.id]);
       totalCost += count * sellsFor;
 
       if (count * sellsFor < minValue && filterItems) {

@@ -29,7 +29,7 @@ export default class App extends React.Component {
 
   render() {
     const { apiKey, accountName } = this.state;
-    const { minValue, filterItems } = this.props;
+    const { minValue, filterItems, priceCategory } = this.props;
 
     return (
       <div>
@@ -42,6 +42,7 @@ export default class App extends React.Component {
           filterItems={filterItems}
           apiKey={apiKey}
           accountName={accountName}
+          priceCategory={priceCategory}
         />
       </div>
     );
