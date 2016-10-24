@@ -1,4 +1,6 @@
-const fetch = window.fetch;
+import setupFetch from 'fetch-ponyfill';
+
+const { fetch } = setupFetch();
 
 export default fetch;
 

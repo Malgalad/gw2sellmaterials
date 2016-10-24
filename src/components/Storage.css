@@ -8,6 +8,7 @@
 .minimalPrice {
     display: inline-block;
     vertical-align: middle;
+    width: 7em;
 }
 
 .options {
