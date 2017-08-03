@@ -2,6 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 
 import App from './components/App';
+import registerServiceWorker from './registerServiceWorker';
 import { getItem } from './services/localStorage';
 
 render(
@@ -11,5 +12,6 @@ render(
     filterItems={getItem('filterItems')}
     priceCategory={getItem('priceCategory', 'sells')}
   />,
-  document.querySelector('#root')
+  document.getElementById('root'),
 );
+registerServiceWorker();

@@ -1,7 +1,8 @@
+import { fetchJSON } from '../services/fetch';
+import { materials } from '../constants/endpoints';
+
 export const getCategoriesList = () =>
-  System.import('../constants/api/materials')
-    .then((module) => module.default);
+  fetchJSON(materials);
 
 export const getCategoryItems = (ids) =>
-  System.import('../constants/api/materials')
-    .then((module) => module.byId);
+  fetchJSON(`${materials}?ids=${ids.join(',')}`);

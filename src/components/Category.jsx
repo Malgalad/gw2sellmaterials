@@ -3,7 +3,7 @@ import keyBy from 'lodash.keyby';
 import getProp from 'lodash.get';
 import curryRight from 'lodash.curryright';
 
-import styles from './Category.css';
+import './Category.css';
 import { getItems } from '../api/items';
 import { getPrices } from '../api/prices';
 import Item from './Item';
@@ -72,7 +72,7 @@ export default class Category extends React.Component {
     }
 
     return (
-      <div className={styles.category}>
+      <div className="category">
         <h3>
           {name}
           <Price coins={totalCost} className="pull-xs-right m-l-1" />

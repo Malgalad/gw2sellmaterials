@@ -4,7 +4,7 @@ import groupBy from 'lodash.groupby';
 import { getCategoriesList, getCategoryItems } from '../api/materials';
 import { getUserMaterials } from '../api/account';
 import { setItem, clear } from '../services/localStorage';
-import styles from './Storage.css';
+import './Storage.css';
 import Category from './Category';
 import Price from './Price';
 
@@ -67,11 +67,11 @@ export default class App extends React.Component {
     const { accountName } = this.props;
 
     return (
-      <div className={styles.container}>
-        <div className={`form-inline ${styles.options}`}>
+      <div className="storage-container">
+        <div className="form-inline options">
           <div className="form-group">
             <label className="form-check-inline">
-              Minimum sell value: <Price coins={minValue} className={styles.minimalPrice} />
+              Minimum sell value: <Price coins={minValue} className="minimalPrice" />
               <input
                 type="number"
                 placeholder="Set price in coppers"
@@ -100,7 +100,7 @@ export default class App extends React.Component {
             </label>
           </div>
           <div className="pull-xs-right">
-            <span className={styles.accountName}>
+            <span className="accountName">
               Hello, <span className="text-success">{accountName || 'Anonymous'}</span>!
             </span>
             <button className="m-l-1 btn btn-danger" onClick={this.forgetToken}>
@@ -108,7 +108,7 @@ export default class App extends React.Component {
             </button>
           </div>
         </div>
-        <div className={styles.storage}>
+        <div className="storage">
           {
             isReady ?
               categories

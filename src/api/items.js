@@ -1,3 +1,5 @@
+import { fetchJSON } from '../services/fetch';
+import { items } from '../constants/endpoints';
+
 export const getItems = (ids) =>
-  System.import('../constants/api/items')
-    .then((module) => module[`_${ids[0]}`]);
+  fetchJSON(`${items}?ids=${ids.join(',')}`);

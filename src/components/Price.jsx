@@ -1,6 +1,6 @@
 import React from 'react';
 
-import style from './Price.css';
+import './Price.css';
 import { renderService } from '../constants/endpoints';
 import icons from '../constants/icons';
 
@@ -13,33 +13,36 @@ const Price = ({ coins, className }) => {
     <span className={className}>
       {
         gold > 0 &&
-        <span className={style.amount}>
+        <span className="amount">
           { gold }
           <img
             src={`${renderService}/${icons.ui_coin_gold.signature}/${icons.ui_coin_gold.file_id}.png`}
-            className={style.coin}
+            className="coin"
+            alt="Gold"
             title="Gold"
           />
         </span>
       }
       {
         silver > 0 &&
-        <span className={style.amount}>
+        <span className="amount">
           { silver }
           <img
             src={`${renderService}/${icons.ui_coin_silver.signature}/${icons.ui_coin_silver.file_id}.png`}
-            className={style.coin}
+            className="coin"
+            alt="Silver"
             title="Silver"
           />
         </span>
       }
       {
         copper > 0 &&
-        <span className={style.amount}>
+        <span className="amount">
           { copper }
           <img
             src={`${renderService}/${icons.ui_coin_copper.signature}/${icons.ui_coin_copper.file_id}.png`}
-            className={style.coin}
+            className="coin"
+            alt="Copper"
             title="Copper"
           />
         </span>
